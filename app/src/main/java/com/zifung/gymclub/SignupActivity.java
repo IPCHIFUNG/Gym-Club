@@ -12,8 +12,13 @@ public class SignupActivity extends Activity {
         setContentView(R.layout.activity_signup);
     }
 
-    public void sign_up_btn_clicked(View view) {
+    public void signup_btn_clicked(View view) {
 
     }
+
+    public void return_btn_clicked(View view) {
+        this.finish();
+    }
+
 
 }

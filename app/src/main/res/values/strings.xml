@@ -5,8 +5,10 @@
     <string name="title_discovery">发现</string>
     <string name="title_me">我</string>
 
-    <string name="hint_username">用户名</string>
-    <string name="hint_password">密码</string>
+    <string name="hint_username">请输入用户名</string>
+    <string name="hint_nickname">请输入昵称</string>
+    <string name="hint_password">请输入密码</string>
+    <string name="hint_repeat_password">请再次输入密码</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_signup">SignupActivity</string>
 
@@ -15,5 +17,6 @@
     <string name="total_runtime">分钟</string>
     <string name="today_runtime">今日运动-分钟</string>
     <string name="no_more_information">-没有更多内容-</string>
+    <string name="key_return"><![CDATA[< 返回]]></string>
 
 </resources>

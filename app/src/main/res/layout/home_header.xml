@@ -11,13 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/total_runtime_slogan"
-        android:background="#ccc"
-        android:padding="5dp"/>
+        android:background="#eee"
+        android:padding="5dp"
+        android:layout_marginTop="30dp"/>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ccc">
+        android:background="#eee">
 
         <TextView
             android:id="@+id/total_time"
@@ -66,10 +67,13 @@
 
         <Button
             android:id="@+id/btn_add_course"
-            android:layout_width="92dp"
-            android:layout_height="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="+添加"
-            app:layout_constraintRight_toRightOf="parent"/>
+            android:textColor="#fff"
+            android:background="@drawable/button_shape"
+            app:layout_constraintRight_toRightOf="parent"
+            android:minHeight="0dp"/>
 
     </android.support.constraint.ConstraintLayout>
 
