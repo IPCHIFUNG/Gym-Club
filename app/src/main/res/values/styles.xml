@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#ddd</item>
+        <item name="colorControlActivated">#ddd</item>
+    </style>
+
 </resources>

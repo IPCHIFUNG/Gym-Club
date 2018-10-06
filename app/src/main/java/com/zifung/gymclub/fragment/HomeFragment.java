@@ -4,11 +4,19 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.zifung.gymclub.R;
+import com.zifung.gymclub.list.RecyclerList;
+import com.zifung.gymclub.util.MyRecyclerAdatper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -62,12 +70,53 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    private List<RecyclerList> mDatas;
+    private MyRecyclerAdatper recycleAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+
+        mDatas = new ArrayList<>();
+        RecyclerList fl;
+        String time;
+        for ( int i = 0; i < 40; i++) {
+            if (i % 2 == 0){
+                time = "10";
+            }else{;
+                time="20";
+            }
+            fl=new RecyclerList("item"+i, time);
+            mDatas.add(fl);
+        }
+
+        recycleAdapter = new MyRecyclerAdatper(getContext(), mDatas);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        //如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
+        recyclerView.setHasFixedSize(true);
+        //创建并设置Adapter
+
+        // set the header and footer
+        View header = LayoutInflater.from(getContext()).inflate(R.layout.home_header,null);
+        recycleAdapter.setHeaderView(header);
+        View footer = LayoutInflater.from(getContext()).inflate(R.layout.home_footer,null);
+        recycleAdapter.setFooterView(footer);
+
+
+        recyclerView.setAdapter(recycleAdapter);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        return view;
+
     }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

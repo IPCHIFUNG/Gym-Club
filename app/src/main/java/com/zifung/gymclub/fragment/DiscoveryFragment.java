@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -206,12 +207,24 @@ public class DiscoveryFragment extends Fragment implements ViewPager.OnPageChang
 
         private Context mContext;
         private List<Map<String, Object>> mMapList;
+        private List<View> vViewList;
 
         private  boolean scrollState = false;
 
         public MyBaseAdapter(Context context, List<Map<String, Object>> mapList) {
             mContext = context;
             mMapList = mapList;
+            vViewList = new ArrayList<>();
+            LayoutInflater inflater = LayoutInflater.from(mContext);
+            for (int i = 0; i < mapList.size(); i++) {
+                View view = inflater.inflate(R.layout.discovery_list_item, null);
+                ViewHolder viewHolder = new ViewHolder();
+
+                viewHolder.img = view.findViewById(R.id.iv_dli);
+                viewHolder.text = view.findViewById(R.id.tv_dli);
+                view.setTag(viewHolder);
+                vViewList.add(view);
+            }
         }
 
         public void setScrollState(boolean scrollState) {
@@ -238,22 +251,10 @@ public class DiscoveryFragment extends Fragment implements ViewPager.OnPageChang
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            ViewHolder viewHolder;
-//            if (null == view) {
-                viewHolder = new ViewHolder();
-                LayoutInflater inflater = LayoutInflater.from(mContext);
-                view = inflater.inflate(R.layout.discovery_list_item, null);
-
-                viewHolder.img = view.findViewById(R.id.iv_dli);
-                viewHolder.text = view.findViewById(R.id.tv_dli);
-
-                view.setTag(viewHolder);
-//            } else {
-//                viewHolder = (ViewHolder) view.getTag();
-//            }
+            ViewHolder viewHolder = (ViewHolder) vViewList.get(i).getTag();
 
             Map<String, Object> item = getItem(i);
-            if (null != item) {
+            if (null != item || viewHolder.img.getBackground() == null) {
                 if (!scrollState) {
                     viewHolder.img.setBackgroundResource((int) item.get("img"));
                 } else {
@@ -264,7 +265,7 @@ public class DiscoveryFragment extends Fragment implements ViewPager.OnPageChang
                 }
                 viewHolder.text.setText((String) item.get("text"));
             }
-            return view;
+            return vViewList.get(i);
         }
 
         private class ViewHolder {
