@@ -29,13 +29,14 @@
 
         <EditText
             android:id="@+id/et_password"
-            android:theme="@style/MyEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_password"
-            android:textColorHint="#ddd"
+            android:inputType="textPassword"
+            android:paddingBottom="20dp"
             android:textColor="#fff"
-            android:paddingBottom="20dp"/>
+            android:textColorHint="#ddd"
+            android:theme="@style/MyEditText" />
 
         <Button
             android:layout_width="match_parent"
