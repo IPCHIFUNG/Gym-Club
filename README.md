@@ -11,6 +11,7 @@
 - Banner (ViewPager, Threading)
 - Listview (Rewrite BaseAdapter and optimaze the loading of pics)
 - RecycleList (Rewrite RecycleView.Adapter)
+- Header and Footer of upper two lists
 - Splash (which can be skip in advance by clicking on a button)
 - Transparence
 - Other common fuatures
