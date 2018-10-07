@@ -13,5 +13,5 @@
 - RecycleList (Rewrite RecycleView.Adapter)
 - Header and Footer of upper two lists
 - Splash (which can be skip in advance by clicking on a button)
-- Transparence
+- Transparency
 - Other common fuatures
