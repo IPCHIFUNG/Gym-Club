@@ -72,6 +72,7 @@ public class MyRecyclerAdatper extends RecyclerView.Adapter<MyRecyclerAdatper.My
             if(holder instanceof MyViewHolder) {
                 //这里加载数据的时候要注意，是从position-1开始，因为position==0已经被header占用了
                 holder.course_name.setText(mDatas.get(position-1).getName());
+                holder.course_name.getPaint().setFakeBoldText(true);
                 holder.course_time.setText(mDatas.get(position-1).getTime());
                 return;
             }

@@ -83,16 +83,24 @@ public class HomeFragment extends Fragment {
 
         mDatas = new ArrayList<>();
         RecyclerList fl;
-        String time;
-        for ( int i = 0; i < 40; i++) {
-            if (i % 2 == 0){
-                time = "10";
-            }else{;
-                time="20";
-            }
-            fl=new RecyclerList("item"+i, time);
-            mDatas.add(fl);
-        }
+
+        fl=new RecyclerList("上肢拉伸", "6分钟 · k1");
+        mDatas.add(fl);
+        fl=new RecyclerList("腹肌撕裂者初级", "9分钟 · k2");
+        mDatas.add(fl);
+        fl=new RecyclerList("小腿按摩", "15分钟 · k1");
+        mDatas.add(fl);
+        fl=new RecyclerList("躯干拉伸", "8分钟 · k1");
+        mDatas.add(fl);
+        fl=new RecyclerList("瘦腿训练", "9分钟 · k2");
+        mDatas.add(fl);
+        fl=new RecyclerList("腹肌撕裂者进阶", "11分钟 · k3");
+        mDatas.add(fl);
+        fl=new RecyclerList("马甲线养成", "12分钟 · k3");
+        mDatas.add(fl);
+        fl=new RecyclerList("一字马竖叉", "13分钟 · k1");
+        mDatas.add(fl);
+
 
         recycleAdapter = new MyRecyclerAdatper(getContext(), mDatas);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);

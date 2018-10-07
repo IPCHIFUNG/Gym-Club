@@ -16,5 +16,19 @@
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="TODO" />
 
+    <Button
+        android:id="@+id/skip_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳过"
+        android:textColor="#fff"
+        android:onClick="skip_btn_clicked"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/skip_button_shape"
+        android:minHeight="0dp"
+        android:minWidth="80dp"
+        android:layout_margin="10dp"
+        />
 
 </android.support.constraint.ConstraintLayout>

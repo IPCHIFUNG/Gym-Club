@@ -3,12 +3,14 @@ package com.zifung.gymclub;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
 import android.view.Window;
-
-import java.util.Timer;
-import java.util.TimerTask;
+import android.widget.Button;
 
 public class SplashActivity extends Activity {
+
+    private Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,19 +18,25 @@ public class SplashActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash);
 
-
-        // 实现3秒跳转
-        final Intent intent=new Intent(SplashActivity.this,MainActivity.class);
-        Timer timer=new Timer();
-        TimerTask task=new TimerTask() {
-            @Override   public void run() {
-                startActivity(intent);
-            }
-        };
-        timer.schedule(task,3*1000);
-
-
-
+        mHandler.postDelayed(runnable, 3000);
 
     }
+
+    public void skip_btn_clicked(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        //撤回自动跳转
+        mHandler.removeCallbacks(runnable);
+        finish();
+    }
+
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    };
+
 }

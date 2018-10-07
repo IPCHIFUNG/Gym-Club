@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.EditText;
 
-import com.zifung.gymclub.R;
 import com.zifung.gymclub.user.UserInfo;
 
 public class LoginActivity extends Activity {
